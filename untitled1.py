@@ -118,51 +118,59 @@ elements = {
     117: {"name": "Tennessine", "symbol": "Ts", "electronic_configuration": "[Rn] 5f^14 6d^10 7p^5", "properties": "Radioactive, used in scientific research"},
     118: {"name": "Oganesson", "symbol": "Og", "electronic_configuration": "[Rn] 5f^14 6d^10 7s^2 7p^6", "properties": "Noble gas, highly unstable and radioactive"}
 }
-while True:
-    
- at = int(input("Enter the atomic number of the element (1-118): "))
- if at<1 or at>118:
-     print("Enter a number between 1 and 118")
- else:
-     break
-for x in elements:
-    if x == at:
-        print("Name:",elements[x]['name'])
-        print("Symbol:", elements[x]['symbol'])
-        print("Electronic Configuration:", elements[x]['electronic_configuration'])
-        print("Properties:", elements[x]['properties'])
-    
-config= elements[at]["electronic_configuration"]
-if 's' in config.split()[-1]:
-        print("s-block")
-elif 'p' in config.split()[-1]:
-        print("p-block")
-elif 'd' in config.split()[-1]:
-        print("d-block")
-elif 'f' in config.split()[-1]:
-        print("f-block")
-else:
-        block = "Unknown"
-if at <=2:
-    print("period 1")
-elif at >2 and at <=10:
-    print("period 2")  
-elif at >10 and at <=18:
-    print("period 3")  
-elif at >18 and at <=36:
-    print("period 4")  
-elif at >36 and at <=54:
-    print("period 5")  
-elif at >=55 and at <=55:
-    print("period 6")  
-elif at >=71 and at <=86:
-    print("period 6") 
-elif at >=87 and at <=88:
-    print("period 7") 
-elif at >=103 and at <=118:
-    print("period 7") 
-elif at >=57 and at <=70:
-    print("Lanthanoid")
-elif at >=89 and at <=102:
-    print("Actinide")
 
+while True:  
+    at = input("Enter the atomic number of the element (1-118): ")
+    if at.isdigit():  
+        at = int(at)  
+        if 1 <= at <= 118: 
+            break  
+        else:
+            print("\nInvalid input! Please enter a number between 1 and 118.\n")  
+    else:
+        print("\nInvalid input! Please enter a valid number.\n")  
+element = elements.get(at)  
+if element:  
+    print("\nElement Details:")
+    print("----------------")
+    print("Name:", element['name'])  
+    print("Symbol:", element['symbol'])  
+    print("Electronic Configuration:", element['electronic_configuration'])  
+    print("Properties:", element['properties'])  
+
+    config = element["electronic_configuration"] 
+if 's' in config.split()[-1]:
+    block = "s-block"
+elif 'p' in config.split()[-1]:
+    block = "p-block"
+elif 'd' in config.split()[-1]:
+    block = "d-block"
+elif 'f' in config.split()[-1]:
+    block = "f-block"
+else:
+    block = "Unknown"
+
+print("Block:", block)
+
+if at <= 2:
+    period = "1"
+elif at <= 10:
+    period = "2"
+elif at <= 18:
+    period = "3"
+elif at <= 36:
+    period = "4"
+elif at <= 54:
+    period = "5"
+elif at <= 86:
+    period = "6"
+elif at <= 88:
+    period = "7"
+elif at <= 102:
+    period = "Actinide"
+elif at <= 70:
+    period = "Lanthanoid"
+else:
+    period = "Unknown"
+
+print("Period:", period)  
