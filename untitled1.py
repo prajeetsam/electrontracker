@@ -119,46 +119,50 @@ elements = {
     118: {"name": "Oganesson", "symbol": "Og", "electronic_configuration": "[Rn] 5f^14 6d^10 7s^2 7p^6", "properties": "Noble gas, highly unstable and radioactive"}
 }
 while True:
-    at = int(input("Enter the atomic number of the element (1-118): "))
-    if at < 1 or at > 118:
-        print("Invalid atomic number. Please enter a number between 1 and 118.")
-    else:
-        break  
+    
+ at = int(input("Enter the atomic number of the element (1-118): "))
+ if at<1 or at>118:
+     print("Enter a number between 1 and 118")
+ else:
+     break
 for x in elements:
-         if x==at:
-             print(elements[x])
-
-config = elements[at]["electronic_configuration"]
+    if x == at:
+        print("Name:",elements[x]['name'])
+        print("Symbol:", elements[x]['symbol'])
+        print("Electronic Configuration:", elements[x]['electronic_configuration'])
+        print("Properties:", elements[x]['properties'])
+    
+config= elements[at]["electronic_configuration"]
 if 's' in config.split()[-1]:
-    print("s-block")
+        print("s-block")
 elif 'p' in config.split()[-1]:
-    print("p-block")
+        print("p-block")
 elif 'd' in config.split()[-1]:
-    print("d-block")
+        print("d-block")
 elif 'f' in config.split()[-1]:
-    print("f-block")
+        print("f-block")
 else:
-    block = "Unknown"
-
-if at <= 2:
+        block = "Unknown"
+if at <=2:
     print("period 1")
-elif at > 2 and at <= 10:
+elif at >2 and at <=10:
     print("period 2")  
-elif at > 10 and at <= 18:
+elif at >10 and at <=18:
     print("period 3")  
-elif at > 18 and at <= 36:
+elif at >18 and at <=36:
     print("period 4")  
-elif at > 36 and at <= 54:
+elif at >36 and at <=54:
     print("period 5")  
-elif at >= 55 and at <= 71:
+elif at >=55 and at <=55:
     print("period 6")  
-elif at >= 72 and at <= 86:
+elif at >=71 and at <=86:
     print("period 6") 
-elif at >= 87 and at <= 88:
+elif at >=87 and at <=88:
     print("period 7") 
-elif at >= 103 and at <= 118:
+elif at >=103 and at <=118:
     print("period 7") 
-elif at >= 57 and at <= 70:
+elif at >=57 and at <=70:
     print("Lanthanoid")
-elif at >= 89 and at <= 102:
+elif at >=89 and at <=102:
     print("Actinide")
+
